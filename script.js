@@ -105,10 +105,131 @@ console.log("Data Pertama = ", cars[0])
 console.table(cars)
 console.log(cars.length)
 
-//nambah data
+//PUSH --> menambah data
 cars.push("Kijang", "BMW", "Pajero")
 console.log(cars)
 
-//concat
+//Concat -->menggabungkan data
 const group = motorCycle.concat(cars)
 console.table(group)
+
+//LOOP - pengulangan 
+for(i = 0; i < cars.length; i += 1){
+    document.writeln(cars[i] + '<br>')
+    console.log(cars[i] + '<br>')
+}
+
+var i = 0
+while(i < cars.length){
+    document.writeln(`Loop: ${cars[i] + '<br>'}`)
+    i++
+}
+
+const food = [
+    {
+        data : 1,
+        rasa : "Manis",
+        warna : "Hijau",
+        bentuk : "Bulat"
+    },
+    {
+        data : 2,
+        rasa : "Pahit",
+        warna : "Hitam",
+        bentuk : "Oval"
+    },
+    {
+        data : 3,
+        rasa : "Asam",
+        warna : "Merah",
+        bentuk : "Kotak"
+    },
+]
+// let a = ""
+// for (let a in food) {
+//     a += food[a] + ""
+//     document.writeln(`Loop : ${a} </br>`)
+// }
+
+food.forEach(foods => {
+    for(let value in foods){
+        document.writeln(`${foods[value]} </br>`)
+    }
+})
+
+//Conditional
+const score = 75
+if(score < 60){
+    document.writeln("TIDAK LULUS" + "<br>")
+}else if(score >= 60 && score <= 70){
+    document.writeln("CUKUP" + "<br>") 
+}else{
+    document.writeln("LULUS" + "<br>")
+}
+
+const hasilUjian = score < 60 ? 'TIDAK LULUS' : score >= 60 && score <= 70 ? 'CUKUP' : 'LULUS'
+    document.writeln(hasilUjian + "<br>")
+
+const role = "Programer"
+switch(role){
+    case "Programer":
+        document.writeln("Coding" + "<br>")
+        break
+    case "UI/UX":
+        document.writeln("Mendesign")
+        break
+    case "Product Manager":
+        document.writeln("Lead")
+        break
+    default:
+        document.writeln("Kerja")
+    }
+    
+//FUNCTION
+//Decalation
+function user(nama, email) {
+    document.writeln(`Nama : ${nama}, Email : ${email}` + "<br>")
+}
+user('Ade Setiawan ', 'brazz73@gmail.com') 
+
+//Expression
+const user2 = function(nama, email){
+    const result3 = `Nama : ${nama}, Email : ${email}`
+    return result3
+}
+const ade = user2("AdeS", "brazz73@gmail.com")
+document.writeln(ade)
+
+const user3 = (nama, email) => {
+    const result4 = `Nama : ${nama}, Email : ${email}`
+    return result4
+}
+document.writeln(user3("Ade", "brazz73@gmail.com"))
+
+//BMI CALC
+const bmiMan = () => {
+    const berat = parseFloat(document.getElementById("berat").value)
+    const tinggi = parseFloat(document.getElementById("tinggi").value)
+
+    const bmiManCount = berat/(tinggi*tinggi)
+    let indicator
+  
+    console.log(bmiManCount)
+
+    document.getElementById("resultBMI"), innerHTML = `${indicator}`
+
+    if(bmiManCount < 17){
+        indicator = "Sangat Kurus"
+    }else if(bmiManCount >= 17 && bmiManCount <= 18.5){
+        indicator = "Kurus"
+    }else if(bmiManCount >= 18.5 && bmiManCount <= 25){
+        indicator = "Normal"
+    }else if(bmiManCount >= 25 && bmiManCount <=27){
+        indicator = "Gemuk"
+    }else{
+        indicator = "Over Weight"
+    }
+    return indicator
+}
+
+//document.writeln(bmiMan(75, 1.7))
