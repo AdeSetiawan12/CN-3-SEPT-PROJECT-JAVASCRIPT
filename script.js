@@ -206,17 +206,18 @@ const user3 = (nama, email) => {
 }
 document.writeln(user3("Ade", "brazz73@gmail.com"))
 
-//BMI CALC
+/*/BMI CALC
 const bmiMan = () => {
-    const berat = parseFloat(document.getElementById("berat").value)
-    const tinggi = parseFloat(document.getElementById("tinggi").value)
+    const berat = parseInt(document.getElementById("berat").value)
+    const tinggi = parseInt(document.getElementById("tinggi").value)
+    const resultBMI = document.getElementById("resultBMI")
 
     const bmiManCount = berat/(tinggi*tinggi)
     let indicator
   
-    console.log(bmiManCount)
+    // console.log(bmiManCount)
 
-    document.getElementById("resultBMI"), innerHTML = `${indicator}`
+    resultBMI.textContent = indicator
 
     if(bmiManCount < 17){
         indicator = "Sangat Kurus"
@@ -232,4 +233,29 @@ const bmiMan = () => {
     return indicator
 }
 
-//document.writeln(bmiMan(75, 1.7))
+//document.writeln(bmiMan(75, 1.7)) */
+
+function bmiMan() {
+    var bmiManCount
+    
+    var weight = parseInt(document.getElementById("berat").value)
+    var height = parseInt(document.getElementById("tinggi").value)
+
+    bmiManCount = (weight / Math.pow((height/100),2)).toFixed(2)
+    document.getElementById("resultBmi").textContent = bmiManCount
+ 
+    if(bmiManCount < 17){
+        indicator = "Sangat Kurus"
+    }else if(bmiManCount >= 17 && bmiManCount <= 18.5){
+        indicator = "Kurus"
+    }else if(bmiManCount >= 18.5 && bmiManCount <= 25){
+        indicator = "Normal"
+    }else if(bmiManCount >= 25 && bmiManCount <=27){
+        indicator = "Gemuk"
+    }else{
+        indicator = "Over Weight"
+    }
+    
+    document.getElementById("resultIndicator").textContent = indicator
+
+}
